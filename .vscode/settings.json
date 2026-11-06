@@ -1,0 +1,12 @@
+{
+    // Load PO2_DATA_DIR / PO2_FIG_DIR from .env for Python files and notebooks.
+    "python.envFile": "${workspaceFolder}/.env",
+    // Run notebooks from the folder they are saved in (notebooks/), like Jupyter does.
+    "jupyter.notebookFileRoot": "${fileDirname}",
+    // Hide clutter in the file explorer.
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.ipynb_checkpoints": true,
+        "**/*.egg-info": true
+    }
+}

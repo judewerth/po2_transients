@@ -1,0 +1,29 @@
+# ---- Data: never committed (unpublished, large). See data/README.md ----
+data/*
+!data/README.md
+
+# ---- Generated output ----
+figures/
+
+# ---- Local settings (may contain personal paths) ----
+.env
+
+# ---- Python / Jupyter by-products ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.ipynb_checkpoints/
+.virtual_documents/
+
+# ---- Office lock files and OS clutter ----
+~$*
+.DS_Store
+Thumbs.db
+
+# ---- Editors (shared VS Code settings in .vscode/ ARE committed) ----
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json

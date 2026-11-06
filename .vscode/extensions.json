@@ -1,0 +1,7 @@
+{
+    // VS Code shows a "Install recommended extensions?" pop-up when this folder is opened.
+    "recommendations": [
+        "ms-python.python",
+        "ms-toolsai.jupyter"
+    ]
+}

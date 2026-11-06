@@ -1,0 +1,35 @@
+# Conda environment for po2_transients.
+#
+# Create it (one time):     conda env create -f environment.yml
+# Use it (every session):   conda activate po2
+# Update after a git pull:  conda env update -f environment.yml --prune
+#
+# conda provides Python itself; pip installs the packages at the EXACT versions the analysis was developed
+# and checked with. The scientific packages come from pip on purpose: the mixed-model fits sit near a
+# boundary, and the pip builds reproduce the published numbers on macOS (conda-forge builds use a different
+# linear-algebra library, which shifts the fit slightly). See README → "Reproducibility".
+name: po2
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      # numerical / scientific core
+      - numpy==2.2.6
+      - scipy==1.15.3
+      - pandas==2.3.3
+      - matplotlib==3.10.9
+      - statsmodels==0.15.0
+      - patsy==1.0.3
+      - h5py==3.16.0          # reads MATLAB v7.3 .mat files (scipy.io.loadmat reads the older formats)
+      # notebooks and interactive widgets
+      - ipykernel==7.3.0      # lets Jupyter / VS Code run notebooks with this environment
+      - ipywidgets==8.1.9     # sliders, dropdowns, buttons in the GUI notebook
+      - ipympl==0.10.0        # "%matplotlib widget": interactive, clickable figures
+      - jupyterlab            # optional browser-based notebook editor (VS Code works without it)
+      - nbconvert             # run / clear notebooks from the terminal
+      # configuration
+      - python-dotenv         # reads the .env file (PO2_DATA_DIR, PO2_FIG_DIR)
+      # this repo's own .py modules, installed in "editable" mode (see README, Step 5)
+      - -e .

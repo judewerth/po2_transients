@@ -1,0 +1,31 @@
+# Packaging info. Its only job here is to let `pip install -e .` (run automatically by environment.yml)
+# make the four top-level modules importable from any folder, so notebooks in notebooks/ can
+# `import po2_transients as pt`. "Editable" (-e) means Python imports the files in this folder directly:
+# edits to the .py files take effect without reinstalling.
+
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "po2-transients"
+version = "1.0.0"
+description = "Event-triggered pO2 transient analysis (pupil, locomotion, sleep-state events) with notebooks and interactive viewers"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=2.0",
+    "scipy>=1.11",
+    "pandas>=2.0",
+    "matplotlib>=3.8",
+    "statsmodels>=0.14",
+    "patsy>=0.5",
+    "h5py>=3.0",
+    "ipywidgets>=8.0",
+    "ipympl>=0.9",
+    "python-dotenv>=1.0",
+]
+
+[tool.setuptools]
+py-modules = ["po2_transients", "po2_plots", "po2_gui", "presentation_figures"]
